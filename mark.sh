@@ -66,3 +66,8 @@ function g {
                 cd $target
         fi
 }
+
+function l {
+        cut -d" " -f2 $MARKDIR |  \
+                awk -F= 'BEGIN{printf "%-12s %s\n","MarkName","MarkDirectory"} {printf "%-12s %s\n",$1,$2}'
+}
