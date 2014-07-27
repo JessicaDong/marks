@@ -81,3 +81,18 @@ function l {
                 awk -F= 'BEGIN{printf "%-12s %s\n","MarkName",\
 "MarkDirectory"} {printf "%-12s %s\n",$1,$2}'
 }
+
+function mark_append {
+    if [[ -s "$1" ]]; then
+        t=$(mktemp -t marks.XXXXXX) || exit 1
+        trap "rm -f -- '$t'" EXIT
+        sed "/$2/d" "$1" > "$t"
+        mv "$t" "$1"
+        rm -f -- "$t"
+        trap - EXIT
+    fi
+}
+
+function mark_del {
+    
+}
