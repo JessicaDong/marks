@@ -92,7 +92,3 @@ function mark_append {
         trap - EXIT
     fi
 }
-
-function mark_del {
-    
-}
