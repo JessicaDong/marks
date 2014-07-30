@@ -82,6 +82,7 @@ function l {
 "MarkDirectory"} {printf "%-12s %s\n",$1,$2}'
 }
 
+#delete one line from config file savely
 function mark_append {
     if [[ -s "$1" ]]; then
         t=$(mktemp -t marks.XXXXXX) || exit 1
